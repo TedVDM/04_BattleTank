@@ -3,6 +3,21 @@
 #include "TankPlayerController.h"
 
 
+void ATankPlayerController::BeginPlay()
+{
+	Super::BeginPlay();
+
+	auto ControlledTank = GetControlledTank();
+
+	if (ControlledTank)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Playercontroller possesing tank: %s"), *(ControlledTank->GetName()));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Playercontroller not possesing a tank"));
+	}
+}
 
 ATank* ATankPlayerController::GetControlledTank() const
 {
