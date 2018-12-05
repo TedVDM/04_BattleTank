@@ -10,11 +10,11 @@ void ATankPlayerController::BeginPlay()
 
 	if (ControlledTank)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Playercontroller possesing tank: %s"), *(ControlledTank->GetName()));
+		//UE_LOG(LogTemp, Warning, TEXT("Playercontroller possesing tank: %s"), *(ControlledTank->GetName()));
 	}
 	else
 	{
-		UE_LOG(LogTemp, Error, TEXT("Playercontroller not possesing a tank"));
+		//UE_LOG(LogTemp, Error, TEXT("Playercontroller not possesing a tank"));
 	}
 }
 
@@ -22,7 +22,7 @@ void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-
+	AimTowardsCrosshair();
 }
 
 ATank* ATankPlayerController::GetControlledTank() const
@@ -32,7 +32,12 @@ ATank* ATankPlayerController::GetControlledTank() const
 
 bool ATankPlayerController::GetSightRayHitLocation(FVector &OutHitLocation) const
 {
-	OutHitLocation = FVector(1.0);
+	int32 ViewportSizeX, ViewportSizeY;
+
+	GetViewportSize(ViewportSizeX, ViewportSizeY);
+
+	auto ScreenLocation = FVector2D(ViewportSizeX * CrossHairLocationX, ViewportSizeY * CrossHairLocationY);
+
 
 	return false;
 }
