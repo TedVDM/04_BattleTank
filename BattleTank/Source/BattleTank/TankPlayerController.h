@@ -29,4 +29,6 @@ private:
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
 
 	void AimTowardsCrosshair();
+
+	bool  GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 };
