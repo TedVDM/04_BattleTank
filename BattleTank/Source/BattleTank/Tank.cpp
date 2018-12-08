@@ -11,6 +11,11 @@ ATank::ATank()
 
 }
 
+void ATank::AimAt(FVector HitLocation)
+{
+
+}
+
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
