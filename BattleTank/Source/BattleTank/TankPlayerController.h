@@ -32,6 +32,7 @@ private:
 	virtual void Tick(float DeltaTime) override;
 
 	ATank* GetControlledTank() const;
+
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
 
 	void AimTowardsCrosshair();
