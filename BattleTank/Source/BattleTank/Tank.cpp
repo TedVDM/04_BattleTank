@@ -23,7 +23,7 @@ void ATank::BeginPlay()
 	
 }
 
-void ATank::SetBarrelReference(UStaticMeshComponent *BarrelToSet)
+void ATank::SetBarrelReference(UTankBarrel *BarrelToSet)
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
