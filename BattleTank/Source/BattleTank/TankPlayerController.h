@@ -8,8 +8,9 @@
 #include "Components/ActorComponent.h"
 #include "Components/InputComponent.h"
 #include "CoreMinimal.h"
-#include "Tank.h"
 #include "TankPlayerController.generated.h"
+
+class ATank;
 
 /**
  * 
