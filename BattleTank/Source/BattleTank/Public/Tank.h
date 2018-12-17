@@ -4,11 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "Projectile.h"
 #include "Tank.generated.h"
 
 // Forward declarations
 class UTankBarrel; 
 class UTankTurret;
+//class AProjectile;
 class UTankAimingComponent;
 
 UCLASS()
@@ -41,4 +43,9 @@ private:
 	
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 10000;
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
+
+	UTankBarrel* Barrel = nullptr;
 };
