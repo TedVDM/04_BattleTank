@@ -10,7 +10,7 @@
 // Forward declarations
 class UTankBarrel; 
 class UTankTurret;
-//class AProjectile;
+class UTankMovementComponent;
 class UTankAimingComponent;
 
 UCLASS()
@@ -29,7 +29,11 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
 	UTankAimingComponent* TankAimingComponent = nullptr;
+
+	UPROPERTY(BlueprintReadOnly)
+	UTankMovementComponent* TankMovementComponent = nullptr;
 
 private:	
 	UFUNCTION(BlueprintCallable, Category = Setup)
@@ -38,9 +42,6 @@ private:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetTurretReference(UTankTurret* TurretToSet);
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 	
@@ -53,4 +54,7 @@ private:
 	UTankBarrel* Barrel = nullptr;
 
 	double LastFireTime = 0;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 };
