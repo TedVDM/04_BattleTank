@@ -45,7 +45,7 @@ private:
 
 	void AimTowardsCrosshair();
 
-	bool  GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 
 	bool GetLookVectorHitLocation(FVector LookDirection, FVector & HitLocation) const;
 };
