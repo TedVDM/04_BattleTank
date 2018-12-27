@@ -35,6 +35,8 @@ public:
 
 	void AimAt(FVector HitLocation);
 
+	bool IsBarrelMoving();
+
 protected:
 	UPROPERTY(BlueprintReadOnly, category = "State")
 	EFiringState FiringState = EFiringState::Reloading;
@@ -56,6 +58,8 @@ private:
 	UTankTurret* Turret = nullptr;
 
 	double LastFireTime = 0;
+
+	FVector AimDirection;
 
 	void MoveBarrelTowards(FVector AimDirection);
 };
