@@ -37,6 +37,8 @@ public:
 
 	bool IsBarrelMoving();
 
+	EFiringState GetFiringState() const;
+
 protected:
 	UPROPERTY(BlueprintReadOnly, category = "State")
 	EFiringState FiringState = EFiringState::Reloading;
