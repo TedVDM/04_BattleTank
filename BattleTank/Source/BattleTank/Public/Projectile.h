@@ -45,6 +45,9 @@ private:
 	UPROPERTY(EditAnywhere, category = "Components")
 	URadialForceComponent* ExplosionForce = nullptr;
 
-	UPROPERTY(EditDefaultsOnly, category = "Setp")
+	UPROPERTY(EditDefaultsOnly, category = "Setup")
 	float DestroyDelay = 10.f;
+
+	UPROPERTY(EditDefaultsOnly, category = "Setup")
+	float ProjectileDamage = 33.333f;
 };
