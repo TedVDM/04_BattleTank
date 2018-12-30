@@ -2,7 +2,6 @@
 
 #pragma once
 
-
 #include "GameFramework/PlayerController.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Components/ActorComponent.h"
@@ -12,19 +11,22 @@
 
 class UTankAimingComponent;
 
-/**
- * 
- */
 UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+
+public:
+	virtual void SetPawn(APawn* InPawn) override;
 
 protected:
 	UFUNCTION(BlueprintImplementableEvent, category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
 
 private:
+	UFUNCTION()
+	void OnTankDeath();
+
 	UPROPERTY(EditDefaultsOnly)
 	float CrossHairLocationX = 0.5;
 
