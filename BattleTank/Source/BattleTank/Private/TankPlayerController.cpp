@@ -76,7 +76,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 		HitResult,
 		StartLocation,
 		EndLocation,
-		ECollisionChannel::ECC_Visibility))
+		ECollisionChannel::ECC_Camera))
 	{
 		HitLocation = HitResult.Location;
 		return true;
@@ -100,7 +100,7 @@ void ATankPlayerController::SetPawn(APawn * InPawn)
 
 void ATankPlayerController::OnTankDeath()
 {
-	// StartSpectatingOnly();
+	StartSpectatingOnly();
 
-	UE_LOG(LogTemp, Warning, TEXT("You dead"));
+	//UE_LOG(LogTemp, Warning, TEXT("You dead"));
 }
