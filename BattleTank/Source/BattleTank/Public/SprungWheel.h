@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "PhysicsEngine/PhysicsConstraintComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/SphereComponent.h"
 #include "SprungWheel.generated.h"
 
 UCLASS()
@@ -29,9 +30,15 @@ public:
 
 private:
 	UPROPERTY(VisibleAnywhere, category = "Components")
-	UStaticMeshComponent* Wheel = nullptr;
+	UPhysicsConstraintComponent* PhysicsConstraint = nullptr;
 
 	UPROPERTY(VisibleAnywhere, category = "Components")
-	UPhysicsConstraintComponent* PhysicsConstraint = nullptr;
+		USphereComponent* Axle = nullptr;
+
+	UPROPERTY(VisibleAnywhere, category = "Components")
+	UPhysicsConstraintComponent* AxleWheelConstraint = nullptr;
+
+	UPROPERTY(VisibleAnywhere, category = "Components")
+		USphereComponent* Wheel = nullptr;
 	
 };
