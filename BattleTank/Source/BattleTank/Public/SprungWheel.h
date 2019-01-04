@@ -34,12 +34,12 @@ private:
 	UPhysicsConstraintComponent* PhysicsConstraint = nullptr;
 
 	UPROPERTY(VisibleAnywhere, category = "Components")
-		USphereComponent* Axle = nullptr;
+	USphereComponent* Axle = nullptr;
 
 	UPROPERTY(VisibleAnywhere, category = "Components")
 	UPhysicsConstraintComponent* AxleWheelConstraint = nullptr;
 
 	UPROPERTY(VisibleAnywhere, category = "Components")
-		USphereComponent* Wheel = nullptr;
+	USphereComponent* Wheel = nullptr;
 	
 };

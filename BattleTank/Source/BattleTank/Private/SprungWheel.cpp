@@ -45,8 +45,6 @@ void ASprungWheel::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	
-
 }
 
 void ASprungWheel::AddDrivingForce(float ForceMagnitude)

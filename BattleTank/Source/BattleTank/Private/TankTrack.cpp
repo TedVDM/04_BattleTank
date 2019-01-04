@@ -3,6 +3,8 @@
 #include "TankTrack.h"
 #include "SprungWheel.h"
 #include "Engine/World.h"
+#include "SpawnPoint.h"
+#include "Components/SceneComponent.h"
 
 UTankTrack::UTankTrack()
 {
@@ -10,9 +12,23 @@ UTankTrack::UTankTrack()
 
 }
 
-TArray<class ASprungWheel*> UTankTrack::GetWheels() const
+TArray<ASprungWheel*> UTankTrack::GetWheels() const
 {
-	return TArray<class ASprungWheel*>();
+	TArray<ASprungWheel*> SprungWheels;
+	TArray<USceneComponent*> Children;
+	GetChildrenComponents(true, Children);
+	for (USceneComponent* Child : Children)
+	{
+		auto SpawnPointChild = Cast<USpawnPoint>(Child);
+		if (!SpawnPointChild) continue;
+		
+		AActor* SpawnChild = SpawnPointChild->GetActorSpawned();
+		auto SprungWheel = Cast<ASprungWheel>(SpawnChild);
+		if (!SprungWheel) continue;
+
+		SprungWheels.Add(SprungWheel);
+	}
+	return SprungWheels;
 }
 
 void UTankTrack::DriveTrack(float CurrentThrottle)
